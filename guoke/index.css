@@ -1,0 +1,218 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: gainsboro;
+    min-width: 1030px;
+    line-height: 1.5;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+#container{
+    background: cornsilk;
+
+}
+
+#header{
+    background: #FAFAFA;
+    width: 100%;
+    border-top: 3px solid #85C155;
+    float: left;
+}
+
+#login{
+    background: local;
+}
+
+#nav{
+    height: 60px;
+    margin: 0 auto;
+    padding: 20px 0 0;
+    width: 1000px;
+}
+#logo{
+    float: left;
+}
+#list{
+    margin:5px 0 0 17px;
+    width: 621px;
+    height: 40px;
+    float: left;
+    overflow: visible;
+    padding: 0;
+}
+#list > li{
+    float: left;
+    list-style: outside none none;
+    font-size: 20px;
+    font-family: "Microsoft YaHei","WenQuanYi Micro Hei",SimHei,tahoma,sans-serif;
+    margin:0 1px 0 0 ;
+
+}
+#list >li >a{
+    text-decoration: none;
+    color: #4BA733;
+    padding-left: 11px ;
+    padding-right: 23px;
+    font-size: 18px;
+}
+#list >li b{
+    border-top: 5px solid #4BA733;
+    border-left: 4px solid #FAFAFA;
+    border-right: 4px solid #FAFAFA;
+    height: 0;
+    width: 0;
+    position: relative;
+    left: 7px;
+    top: 13px;
+}
+#list >li:hover ol{
+    opacity: 1;
+    display: block;
+}
+ol{
+    position: absolute;
+    display: none;
+    padding: 4px 0;
+    opacity: 0;
+    margin: 0 0 0 -43px;
+    width: 105px;
+    border: 1px solid #E0E0E0;
+    background: #fff;
+    text-align: right;
+    font-size: 16px;
+}
+ol li{
+    list-style-type: none;
+    line-height: 1.5 ;
+    /*padding: 4px 16px 2px 0;*/
+}
+ol li a{
+    display: block;
+    float: none;
+    color: #666;
+    padding: 2px 16px 0 0;
+    font-size: 16px;
+    text-decoration: none;
+
+}
+ol li a:hover{
+    background: #C0BBBB;
+}
+
+#gsearch-p{
+    margin: 0;
+    padding: 1px 0 0 1px;
+    border-radius: 4px;
+    border: 1px solid #EDEDED;
+    float: left;
+    background-color:#fff ;
+}
+#gsearch{
+    float: left;
+}
+#searchTxt {
+    float: left;
+    height: 29px;
+    width: 194px;
+    padding: 3px 6px 4px 5px;
+    border: 0 none;
+    outline:0 none;
+    margin: 0;
+    vertical-align: baseline;
+    line-height: normal;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+#gsearchIcon{
+    vertical-align: middle;
+    margin: 10px 2px  0  8px;
+    float: left;
+    cursor: pointer;
+    background:transparent url("searchicon.png") no-repeat scroll 0% 55% ;
+    border: none;
+}
+
+#unlogin{
+    background: #F3F3F3;
+    height: 175px;
+    font-size: 21px;
+    margin-bottom: 28px;
+}
+
+#unlogin-panel{
+    width: 1000px;
+    margin: 0  auto;
+}
+
+#unlogin-header{
+    padding: 57px 0 0;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    width: 1000px;
+}
+#unlogin-header p{
+    display: inline;
+    margin: 0 13px 0 8px;
+    color: #333;
+}
+#unlogin-header a{
+    color: #F7F7F7;
+    height: 50px;
+    line-height: 50px;
+    width: 180px;
+    background: #88c833;
+    display: inline-block;
+    margin: 0 7px;
+    text-decoration: none;
+}
+.icon-weixin, .icon-sina, .icon-qq, .icon-douban{
+    background: transparent url("union-icon.png") no-repeat scroll 0% 0%;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.icon-weixin{
+    background-position: -50px -471px;
+}
+
+.icon-sina{
+    background-position: 0px -496px;
+}
+
+.icon-qq{
+    background-position: -75px -471px;
+}
+
+.icon-douban{
+    background-position: -50px -496px;
+}
+#unlogin-union{
+    font-size: 16px;
+    width: 485px;
+    height: 25px;
+    margin:19px 20px 0 495px;
+    color: #999;
+    line-height: 1em;
+}
+#page{
+    background: cyan;
+}
+
+#main{
+    background: antiquewhite;
+}
+.title{
+
+}
+#side{
+    background: darkmagenta;
+}
+
+footer{
+    background: white;
+}
