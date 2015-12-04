@@ -6,7 +6,10 @@ body{
     line-height: 1.5;
     font-family: Arial,Helvetica,sans-serif;
 }
-
+ul{
+    padding: 0;
+    margin: 0;
+}
 #container{
     background: cornsilk;
 
@@ -199,12 +202,102 @@ ol li a:hover{
     color: #999;
     line-height: 1em;
 }
-#page{
-    background: cyan;
+.title{
+    border-bottom: 1px solid #E9E9E9;
+    height: 42px;
+    line-height: 1.8em;
+}
+.record{
+    width: 680px;
+    height: 250px;
+    margin-top: 20px;
+}
+.focus{
+    width: 330px;
+    margin-top: 5px;
+    float: left;
+}
+.focus-content{
+
+}
+.focus-img{
+    background: url("1.png");
+    width: 330px;
+}
+.article{
+    float: right;
+    margin-top: 2px;
+    padding: 0;
+    width:330px;
+    font-size: 16px;
+    line-height:1.5;
+    font-family: "Microsoft YaHei","WenQuanYi Micro Hei",SimHei,tahoma,sans-serif;
+    font-weight: normal;
+    color: #666;
+}
+.article ul li{
+    list-style: none;
+    margin-bottom: 7px;
 }
 
+.content{
+    line-height: 26px;
+    overflow: hidden;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.content-l,.content-r{
+    width: 334px;
+}
+.content h2{
+    font-size: 16px;
+    font-weight:normal;
+}
+.content-l ul,.content-r ul{
+
+}
+.content-l ul li,.content-r ul li{
+    font-size: 14px;
+    list-style-type: square;
+}
+.cont{
+    width: 189px;
+    height: 100px;
+    word-wrap: break-word;
+    float: right;
+}
+.cont h3{
+    font-size: 14px;
+    margin:0;
+}
+.cont p{
+    overflow: hidden;
+    font-size:12px ;
+    color: #999;
+    height:48px;
+}
+.img{
+
+}
+.clear{
+    clear: both;
+}
+#page{
+    background: cyan;
+    width: 1020px;
+    margin:0 auto;
+    clear: both;
+}
+#page h1 {
+    color: #4C4C4C;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 10px 0 0;
+    height: 27px;
+    float: left;
+}
 #main{
     background: antiquewhite;
+    width: 680px;
 }
 .title{
 
