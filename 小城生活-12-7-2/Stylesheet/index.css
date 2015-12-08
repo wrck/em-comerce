@@ -41,7 +41,7 @@ p,ul,span{
     visibility: hidden;
 }
 .status-bar{
-    padding:0.9375% 1.56% 0 2.34%;
+    padding:0.9375% 2.34% 0;
     vertical-align: middle;
     text-align: center;
     line-height: 23px;
@@ -50,12 +50,14 @@ p,ul,span{
 .header{
     padding:6.25% 3.91% 4.5%;
     vertical-align: middle;
+    text-align: center;
     line-height: 100%;
     font-family: "Adobe Fangsong Std";
 }
 .status-l{
     float: left;
-    width: 33.67%;
+    /*width: 33.67%;*/
+    width: 210px;
 }
 
 #Signal{
@@ -68,13 +70,15 @@ p,ul,span{
     margin-left:10.62%;
 }
 #status-time{
-    position: absolute;
-    left:42.18%;
+    /*position: absolute;*/
+    /*left:42.18%;*/
     font-size: 25px;
 }
 #battery{
     float: right;
-    width:19.383%;
+    text-align: right;
+    /*width:19.383%;*/
+    width: 210px;
 }
 #battery-img{
     margin-left: 4.2%;
@@ -89,8 +93,9 @@ p,ul,span{
 }
 #header-title{
     font-size: 42px;
-    position: absolute;
-    left: 36.7%;
+    /*position: absolute;*/
+    /*left: 36.7%;*/
+    display: inline-block;
 }
 .point{
     float: left;
@@ -99,6 +104,7 @@ p,ul,span{
 .search{
     float: right;
     margin-right: 1.2%;
+    margin-left: 66px;
 }
 .navigation{
     background-color: #ffffff;
@@ -228,13 +234,14 @@ p,ul,span{
 }
 .r-item img{
     float: left;
+    width: 29.92%;
 }
 
 .r-item-cont{
-    float: left;
+    float: right;
     font-size: 24px;
     font-family: "Adobe Heiti Std";
-    width:65%;
+    width:67%;
     margin-left: 3%;
 }
 
@@ -245,7 +252,14 @@ p,ul,span{
 }
 
 .p1,.p3{
-    margin: 3% auto 3% 2%;
+    margin: 3% 2%;
+
+}
+.p1{
+    text-align: start;
+}
+.p3{
+    vertical-align: bottom;
 }
 .p2{
     margin: 5% 0;
