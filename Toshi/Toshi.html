@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toshi - Open Source Bitcoin Node</title>
+    <link rel="stylesheet" type="text/css" href=stylesheet/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+<body>
+  <div class="github-link">
+    <a href="https://github.com/coinbase/toshi" target="_blank">
+      <h2>FORK ME <span>on GitHub</span></h2>
+    </a>
+  </div>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
+          <nav class="navbar navbar-dark" role="navigation">
+            <ul class="nav navbar-nav clearfix">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Documentation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">GitHub</a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+    <div id="header" class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="logo">
+            <img class="card-img m-b-md" src="images/toshi_logo_white.png" alt="logo">
+            <h1 class="card-title">TOSHI</h1>
+            <p class="card-text">An open source Bitcoin node built to power large scale web applications.</p>
+
+          </div>
+          <div>
+            <a class="btn" href="#">Documentation</a>
+            <a class="btn" href="#">VIEW DEMO</a>
+            <a class="btn" href="#">VIEW ON GITHUB</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <arrows id="scrollTriger">
+      <arrow ar-i="0"></arrow>
+      <arrow ar-i="1"></arrow>
+      <arrow ar-i="2"></arrow>
+    </arrows>
+  </header>
+  <section>
+    <div class="container">
+      <div class="features">
+        <div class="row">
+          <div class="col-md-4 feature_1">
+            <div>
+              <h3>100% open source</h3>
+              <p>Toshi is a full open source Bitcoin node implementation, built by Coinbase.</p>
+            </div>
+          </div>
+          <div class="col-md-4 feature_2">
+            <div>
+              <h3>PostgreSQL</h3>
+              <p>Toshi is backed by PostgreSQL due to its impeccable reputation,
+                proven track record, and powerful feature set.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 feature_3">
+            <div>
+              <h3>powerful API</h3>
+              <p>Toshi provides powerful APIs to aid in blockchain exploration,
+                analysis, as well as wallet functionality at scale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="quick_api" id="scrollToId">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-title">
+              <h2>DESIGNED FOR DEVELOPERS</h2>
+            </div>
+            <div class="section-nav">
+              <a class="active nav-link" data-toggle="block" >BLOCK</a>
+              <a class="nav-link" data-toggle="transaction">TRANSACTION</a>
+              <a class="nav-link" data-toggle="address">ADDRESS</a>
+            </div>
+          </div>
+        </div>
+        <div class="section active" id="block">
+          <div class="row">
+            <div class="col-md-4">
+              <h4>GET LATEST BLOCK</h4>
+              <p>In this example we retrieve information about the lastest main branch block processed by Toshi. <br>This same information is of course available for all blocks.</p>
+              <div>
+                <a href="#" class="btn">documentation</a>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="quick_api_link">
+                <h5>API Endpoint</h5>
+                <div class="code">
+                  <p><a href="http://bitcoin.toshi.io/api/v0/blocks/latest" target="_blank">/api/v0/blocks/latest</a></p>
+                </div>
+              </div>
+              <div class="quick_api_code">
+                <h5>Response</h5>
+                <pre>
+                  <code class="json code ">
+  {
+    "<span >hash</span>": <span class="code-value"><span class="code-string">"000000000000014bb22ba5dbb6f2d4a0ab571ae040f02e5e1bbc9b9e6b88fff8"</span></span>,
+    "<span >branch</span>": <span class="code-value"><span class="code-string">"main"</span></span>,
+    "<span >previous_block_hash</span>": <span class="code-value"><span class="code-string">"000000000000038aa0d5f287a62a541b4e6c42f09f74b67f2f279ef13db40b60"</span></span>,
+    "<span >next_blocks</span>": <span class="code-value">[
+      {
+        "<span>hash</span>": <span class="code-value"><span class="code-string">"0000000000000bef34ff0b2bb868658ea09ab2c365f5e9d576583f4c610ae5bc"</span></span>,
+        "<span>branch</span>": <span class="code-value"><span class="code-string">"main"</span></span>,
+        "<span>height</span>": <span class="code-value"><span class="code-number">159422</span>
+    </span>  }
+    ]</span>,
+    "<span>height</span>": <span class="code-value"><span class="code-number">159421</span></span>,
+    "<span>confirmations</span>": <span class="code-value"><span class="code-number">7</span></span>,
+    "<span>merkle_root</span>": <span class="code-value"><span class="code-string">"18376c68042d46242e815bc4c6a21394f8d36c20efaa639b713d0ce1bdba4b6f"</span></span>,
+    "<span>time</span>": <span class="code-value"><span class="code-string">"2011-12-27T17:54:24Z"</span></span>,
+    "<span>nonce</span>": <span class="code-value"><span class="code-number">258521299</span></span>,
+    "<span>bits</span>": <span class="code-value"><span class="code-number">437155514</span></span>,
+    "<span>difficulty</span>": <span class="code-value"><span class="code-number">1159929.4972244</span></span>,
+    "<span>reward</span>": <span class="code-value"><span class="code-number">5000000000</span></span>,
+    "<span>fees</span>": <span class="code-value"><span class="code-number">100000</span></span>,
+    "<span>total_out</span>": <span class="code-value"><span class="code-number">43182367769</span></span>,
+    "<span>size</span>": <span class="code-value"><span class="code-number">11905</span></span>,
+    "<span>transactions_count</span>": <span class="code-value"><span class="code-number">12</span></span>,
+    "<span>version</span>": <span class="code-value"><span class="code-number">1</span></span>,
+    "<span>transaction_hashes</span>": <span class="code-value">[
+      <span class="code-string">"b8dc1197e13a516965649373d8c6686058fd9cd08d9a61f082c49bd703afa34f"</span>,
+      <span class="code-string">"12f9072f2b5b232d915c7b57ec9616bbea2867627585372f4aee09d06c13678a"</span>,
+      <span class="code-string">"1f85d1a30a91b04b61ef36fd4d5ce5f7b407342f7245e6264732270ca41f9a60"</span>,
+      <span class="code-string">"108ebf6699b8427482f49eb5d98f3773df302b8c1d432ea213d69d493400442f"</span>,
+      <span class="code-string">"19be0a64c2095f8789ee598109f9c6152ee7213e824ecfb81f01dd93ed597d55"</span>,
+      <span class="code-string">"80857f4b61ffa29886de3b166728581e0d9a388959951a969da511b47e48b3a8"</span>,
+      <span class="code-string">"45c582b996585843379856ecf232d49f563b4ef5cfd4b53ae438017744a6bb59"</span>,
+      <span class="code-string">"c74db9130060bc9a1e33c76a873ce0e07124bfd56d77100fe9cc9dee5b75326e"</span>,
+      <span class="code-string">"9387e03b1123806eb922d0022555f6e226296fdd85e14f69e5c9f188a90804b6"</span>,
+      <span class="code-string">"8d0d73e0392584d838a8ffc1d289756ba1bbe93421ed5ffd111428bcb54ab35e"</span>,
+      <span class="code-string">"6bc9461e8b9725201916d227c2b12f3257467ff5e8e190d8c73c405f9cd5d56f"</span>,
+      <span class="code-string">"4a83dd4004e732a0219d32e140875cc591e29e0a3f167ba587ef99310754f9d1"</span>
+    ]
+</span>  }</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="transaction">
+          <div class="row">
+            <div class="col-md-4">
+              <h4>GET TRANSACTION DETAILS</h4>
+              <p>Retrieve information about a particular transaction on the network.</p>              <div>
+              <a href="#" class="btn">documentation</a>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="quick_api_link">
+                <h5>API Endpoint</h5>
+                <div class="code">
+                  <p><a href="http://bitcoin.toshi.io/api/v0/transactions/21c77bcc54405f011c64a77cb1f014ebcdfd05fc39654b43905a0e189be19ebf" target="_blank">/api/v0/transactions/21c77bcc54405f011c64a77cb1f014ebcdfd05fc39654b43905a0e189be19ebft</a></p>
+                </div>
+              </div>
+              <div class="quick_api_code">
+                <h5>Response</h5>
+                <pre><code class="json code ">
+    {
+      "<span>hash</span>": <span class="code-value"><span class="code-string">"21c77bcc54405f011c64a77cb1f014ebcdfd05fc39654b43905a0e189be19ebf"</span></span>,
+      "<span>version</span>": <span class="code-value"><span class="code-number">1</span></span>,
+      "<span>lock_time</span>": <span class="code-value"><span class="code-number">0</span></span>,
+      "<span>size</span>": <span class="code-value"><span class="code-number">259</span></span>,
+      "<span>inputs</span>": <span class="code-value">[
+        {
+          "<span>previous_transaction_hash</span>": <span class="code-value"><span class="code-string">"b0fb35f1e8168ab55a096f8c6415ec0fc529332aa88a1d8b9532e18f304e8f1f"</span></span>,
+          "<span>output_index</span>": <span class="code-value"><span class="code-number">0</span></span>,
+          "<span>amount</span>": <span class="code-value"><span class="code-number">4860600000</span></span>,
+          "<span>script</span>": <span class="code-value"><span class="code-string">"30460221008083b2e74c33f854442bd1f68db93c0c038bd45d6af72826ebed6e696b61418f0..."</span></span>,
+          "<span>addresses</span>": <span class="code-value">[
+            <span class="code-string">"17qHAnmp4UGxeR7Vpomc6tDBicauXRsfNX"</span>
+          ]
+      </span>  }
+      ]</span>,
+      "<span>outputs</span>": <span class="code-value">[
+        {
+          "<span>amount</span>": <span class="code-value"><span class="code-number">2360600000</span></span>,
+          "<span>spent</span>": <span class="code-value"><span class="code-literal">false</span></span>,
+          "<span>script</span>": <span class="code-value"><span class="code-string">"OP_DUP OP_HASH160 5504ca6c54059e797a3b3a45e3c8e550421bc9fc OP_EQUALVERIFY OP_CHECKSIG"</span></span>,
+          "<span>script_hex</span>": <span class="code-value"><span class="code-string">"76a9145504ca6c54059e797a3b3a45e3c8e550421bc9fc88ac"</span></span>,
+          "<span>script_type</span>": <span class="code-value"><span class="code-string">"hash160"</span></span>,
+          "<span>addresses</span>": <span class="code-value">[
+            <span class="code-string">"18kYBAszeq1AmMqVh47r2fTQjihVcz9chN"</span>
+          ]
+        </span>},
+        {
+          "<span>amount</span>": <span class="code-value"><span class="code-number">2500000000</span></span>,
+          "<span>spent</span>": <span class="code-value"><span class="code-literal">true</span></span>,
+          "<span>script</span>": <span class="code-value"><span class="code-string">"OP_DUP OP_HASH160 2b9d62d43713e31a0ca6b9460faedb17b5419747 OP_EQUALVERIFY OP_CHECKSIG"</span></span>,
+          "<span>script_hex</span>": <span class="code-value"><span class="code-string">"76a9142b9d62d43713e31a0ca6b9460faedb17b541974788ac"</span></span>,
+          "<span>script_type</span>": <span class="code-value"><span class="code-string">"hash160"</span></span>,
+          "<span>addresses</span>": <span class="code-value">[
+            <span class="code-string">"14ycbd9W6vwtfKPgtbGFxE6YNeZR2B6cVE"</span>
+          ]
+        </span>}
+      ]</span>,
+      "<span>amount</span>": <span class="code-value"><span class="code-number">4860600000</span></span>,
+      "<span>fees</span>": <span class="code-value"><span class="code-number">0</span></span>,
+      "<span>confirmations</span>": <span class="code-value"><span class="code-number">1402</span></span>,
+      "<span>block_height</span>": <span class="code-value"><span class="code-number">164353</span></span>,
+      "<span>block_hash</span>": <span class="code-value"><span class="code-string">"00000000000002b0a927301832bca7eefc07b4391bfa037dd09a3fc4f1b85081"</span></span>,
+      "<span>block_time</span>": <span class="code-value"><span class="code-string">"2012-01-29T09:19:58Z"</span></span>,
+      "<span>block_branch</span>": <span class="code-value"><span class="code-string">"main"</span>
+  </span>}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="address">
+          <div class="row">
+            <div class="col-md-4">
+              <h4>GET ADDRESS INFORMATION</h4>
+              <p>Retrieve information about a particular address on the network.<br>
+                The below example shows how you would query for address information including transaction history.</p>            <div>
+              <a href="#" class="btn">documentation</a>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="quick_api_link">
+                <h5>API Endpoint</h5>
+                <div class="code">
+                  <p><a href="http://bitcoin.toshi.io/api/v0/addresses/1sT8zQeXUXkS1qUULkC764ry9PZRrd72k/transactions" target="_blank">/api/v0/addresses/1sT8zQeXUXkS1qUULkC764ry9PZRrd72k/transactions</a></p>              </div>
+              </div>
+              <div class="quick_api_code">
+                <h5>Response</h5>
+                <pre><code class="json code ">
+    {
+      "<span>hash</span>": <span class="code-value"><span class="code-string">"1sT8zQeXUXkS1qUULkC764ry9PZRrd72k"</span></span>,
+      "<span>balance</span>": <span class="code-value"><span class="code-number">0</span></span>,
+      "<span>received</span>": <span class="code-value"><span class="code-number">18276000000</span></span>,
+      "<span>sent</span>": <span class="code-value"><span class="code-number">18276000000</span></span>,
+      "<span>unconfirmed_received</span>": <span class="code-value"><span class="code-number">0</span></span>,
+      "<span>unconfirmed_sent</span>": <span class="code-value"><span class="code-number">0</span></span>,
+      "<span>unconfirmed_balance</span>": <span class="code-value"><span class="code-number">0</span></span>,
+      "<span>transactions</span>": <span class="code-value">[
+        {
+          "<span>hash</span>": <span class="code-value"><span class="code-string">"8151bb206249046f6d4a75be171ba9f3d5df408978cebe4bfa2a9340eb34cca4"</span></span>,
+          "<span>version</span>": <span class="code-value"><span class="code-number">1</span></span>,
+          "<span>lock_time</span>": <span class="code-value"><span class="code-number">0</span></span>,
+          "<span>size</span>": <span class="code-value"><span class="code-number">258</span></span>,
+          "<span>inputs</span>": <span class="code-value">[
+            {
+              "<span>previous_transaction_hash</span>": <span class="code-value"><span class="code-string">"87368350c82de637f9491ebaab8ab299e4bd70c0173ff04c27936f902ff647e6"</span></span>,
+              "<span>output_index</span>": <span class="code-value"><span class="code-number">1</span></span>,
+              "<span>amount</span>": <span class="code-value"><span class="code-number">18276000000</span></span>,
+              "<span>script</span>": <span class="code-value"><span class="code-string">"3045022074841df1a1ada0bcb2ce69a0a5b31914526cc7ce616baea97146498760de0ad6022100afabc07b28b8c300db751f79449b2981fac952c1c3180d334166d8ce3718c00501 046f22072f5655c4b4567037793ca640e6f8ea6359c21cc9acdb10eec9faf4004ac87809c490640c8c72ee74a728f5f691a83ac7f55b0a32735f5b3e6b150ffa19"</span></span>,
+              "<span>addresses</span>": <span class="code-value">[
+                <span class="code-string">"1sT8zQeXUXkS1qUULkC764ry9PZRrd72k"</span>
+              ]
+            </span>}
+          ]</span>,
+          "<span>outputs</span>": <span class="code-value">[
+          {
+            "<span>amount</span>": <span class="code-value"><span class="code-number">1945000000</span></span>,
+            "<span>spent</span>": <span class="code-value"><span class="code-literal">true</span></span>,
+            "<span>script</span>": <span class="code-value"><span class="code-string">"OP_DUP OP_HASH160 564bc633dfedc6b761889ba02e7ae78851eea6cc OP_EQUALVERIFY OP_CHECKSIG"</span></span>,
+            "<span>script_hex</span>": <span class="code-value"><span class="code-string">"76a914564bc633dfedc6b761889ba02e7ae78851eea6cc88ac"</span></span>,
+            "<span>script_type</span>": <span class="code-value"><span class="code-string">"hash160"</span></span>,
+            "<span>addresses</span>": <span class="code-value">[
+              <span class="code-string">"18sHtPDv8KpafL4P93mBAAvgZmFeqAvp1y"</span>
+            ]
+            </span>},
+            {
+              "<span>amount</span>": <span class="code-value"><span class="code-number">16331000000</span></span>,
+              "<span>spent</span>": <span class="code-value"><span class="code-literal">true</span></span>,
+              "<span>script</span>": <span class="code-value"><span class="code-string">"OP_DUP OP_HASH160 655199b3fc6f878e3914db2603d609f40cc89e55 OP_EQUALVERIFY OP_CHECKSIG"</span></span>,
+              "<span>script_hex</span>": <span class="code-value"><span class="code-string">"76a914655199b3fc6f878e3914db2603d609f40cc89e5588ac"</span></span>,
+              "<span>script_type</span>": <span class="code-value"><span class="code-string">"hash160"</span></span>,
+              "<span>addresses</span>": <span class="code-value">[
+                <span class="code-string">"1AEj155JDgmp5wjFuskAPfcCAao2hyFjQL"</span>
+              ]
+            </span>}
+          ]</span>,
+          "<span>amount</span>": <span class="code-value"><span class="code-number">18276000000</span></span>,
+          "<span>fees</span>": <span class="code-value"><span class="code-number">0</span></span>,
+          "<span>confirmations</span>": <span class="code-value"><span class="code-number">154705</span></span>,
+          "<span>block_height</span>": <span class="code-value"><span class="code-number">166161</span></span>,
+          "<span>block_hash</span>": <span class="code-value"><span class="code-string">"00000000000006a26fe790fe5d6b77654038334295c076ed5d29473410db082b"</span></span>,
+          "<span>block_time</span>": <span class="code-value"><span class="code-string">"2012-02-10T07:51:47Z"</span></span>,
+          "<span>block_branch</span>": <span class="code-value"><span class="code-string">"main"</span>
+          </span>}
+        ]
+      </span>}<br></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cite">
+        <div class="row">
+          <div class="col-md-12">
+            <h2><strong>Toshi is currently in beta</strong>. Although we're passing TheBlueMatt's de facto standard Bitcoin <a href="https://github.com/TheBlueMatt/test-scripts">test-scripts</a> we still don't recommend using Toshi in production until its tires have been sufficiently kicked.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container text-center">
+    <footer>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Toshi is 100% open source and maintained by
+            <a href="https://coinbase.com/" target="_blank" class="coinbase_logo">Coinbase</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="javascript/bootstrap.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.section-nav a').on('click', function(){
+          $('.section-nav a').removeClass('active');
+          $(this).addClass('active');
+          $('.section').removeClass('active');
+          $('#'+$(this).data('toggle')+'.section').addClass('active');
+        });
+
+        $("#scrollTriger").click(function() {
+          $('html, body').animate({
+            scrollTop: $("#scrollToId").offset().top
+          }, 1000);
+        });
+      })
+      $(window).scroll(function () {
+        if ($(window).scrollTop() >= 150) {
+          $('arrows').fadeOut('slow');
+        }
+        if ($(window).scrollTop() < 150) {
+          $('arrows').fadeIn('slow');
+        }
+      });
+      $(window).resize(function(){
+        $('header').height($(window).height());
+        $('#header').css("margin-top",($(window).height()>200)?($(window).height()*0.2):($(window).height()*0.2)-40);
+      });
+      $('header').height($(window).height());
+      $('#header').css("margin-top",($(window).height()>200)?($(window).height()*0.2):($(window).height()*0.2)-40);
+
+    </script>
+</body>
+</html>
