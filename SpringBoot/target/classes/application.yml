@@ -1,0 +1,74 @@
+security:
+  user:
+    name: cms
+    password: cms
+    role: admin
+spring:
+  profiles:
+    active: dev
+  jersey:
+    init: !!map
+      jersey.config.servlet.filter.staticContentRegex: .*/(images/|img/|css/|js/|fonts/|upload/|favicon.ico).*
+      jersey.config.server.mvc.caching: true
+      jersey.config.server.mediaTypeMappings: "json: application/json, html: text/html"
+      jersey.config.disableMoxyJson: true
+    type: filter
+    filter:
+      order: 3
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://db/testcms?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
+    type: com.zaxxer.hikari.HikariDataSource
+    username: cms
+    password: cms
+  jpa:
+    database: MYSQL
+    generate-ddl: false
+    properties: !!map
+      hibernate.cache.use_second_level_cache: true
+      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+      hibernate.cache.use_query_cache: true
+      hibernate.cache.auto_evict_collection_cache: true
+      hibernate.cache.use_reference_entries: true
+      hibernate.physical_naming_strategy: com.study.core.hibernate.HibernatePhysicalNamingStrategy
+      hibernate.search.default.directory_provider: filesystem
+      javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  dao:
+    exceptiontranslation:
+      enabled: true
+  aop:
+    auto: true
+    proxy-target-class: true
+
+---
+
+spring:
+  profiles: dev
+  jersey:
+    init: !!map
+      jersey.config.server.mvc.caching: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1/testcms?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    properties: !!map
+      hibernate.search.default.directory_provider: ram
+--- 
+
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:mem:cms
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    database: HSQL
+    generate-ddl: true
+    show-sql: true
+    properties: !!map
+      hibernate.search.default.directory_provider: ram
