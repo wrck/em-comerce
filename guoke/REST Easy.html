@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Page title is set by Ember -->
+
+        <link rel="shortcut icon" href="img/icon16.png">
+        <link rel="stylesheet" href="vendor/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/css/highlight.min.css">
+        <link rel="stylesheet/less" type="text/css" href="less/application.less">
+    </head>
+    <body>
+        <script type="text/x-handlebars">
+            {{view RESTEasy.HeaderView}}
+            {{view RESTEasy.RequestView}}
+            {{view RESTEasy.SplitterView}}
+            {{view RESTEasy.ResponseView}}
+
+            <!-- Progress dialog for canceling the request -->
+            {{#dialog-box active=controller.displayProgress}}
+                <h4 class="title">{{tr 'dialog.progress.title'}}</h4>
+                <p>{{tr 'dialog.progress.description'}}</p>
+                <div class="progress"></div>
+                <div class="buttons">
+                    <button {{action 'cancel'}}>
+                        <span class="fa fa-close"></span>
+                        {{tr 'dialog.progress.cancel'}}
+                    </button>
+                </div>
+            {{/dialog-box}}
+
+            <!-- About dialog for describing the application -->
+            {{#dialog-box active=controller.displayAbout}}
+                <h4 class="title">{{tr 'dialog.about.title'}}</h4>
+                <p>{{tr 'dialog.about.line1'}}</p>
+                <p>{{tr 'dialog.about.line2'}}</p>
+                <div class="buttons">
+                    <button {{action 'hideAbout'}}>
+                        <span class="fa fa-close"></span>
+                        {{tr 'dialog.about.close'}}
+                    </button>
+                </div>
+            {{/dialog-box}}
+        </script>
+
+        <!-- Page header view-->
+        <script type="text/x-handlebars" data-template-name="app-header">
+            <div class="float-right">
+                <button {{action 'reset'}}>
+                    <span class="fa fa-trash"></span>
+                    {{tr 'header.reset'}}
+                </button>
+                <button {{action 'showAbout'}}>
+                    <span class="fa fa-info-circle"></span>
+                    {{tr 'header.about'}}
+                </button>
+            </div>
+            <img src="img/icon32.png" class="logo">
+            <h2 class="title">{{tr 'application.title'}}</h2>
+        </script>
+
+        <!-- Request view -->
+        <script type="text/x-handlebars" data-template-name="app-request">
+            <!-- Request method, URL, and send button -->
+            <div class="float-left">
+                {{combo-box choices=controller.methods selection=controller.method}}
+            </div>
+            <button class="float-right" {{action 'send'}}>
+                <span class="fa fa-send"></span>
+                {{tr 'request.send'}}
+            </button>
+            <div class="control overflow-auto">
+                {{input class='url' placeholder='http://' value=controller.url}}
+            </div>
+
+            <!-- HTTP headers -->
+            {{#collapsible-section title='request.headers.title'}}
+                <p>{{tr 'request.headers.description'}}</p>
+                {{editable-table entries=controller.requestHeaders}}
+            {{/collapsible-section}}
+
+            <!-- Data -->
+            {{#collapsible-section title='request.data.title'}}
+                <p>{{tr 'request.data.description'}}</p>
+                {{combo-box choices=controller.dataModes selection=controller.dataMode}}
+                {{#if view.dmForm}}
+                    <p>{{tr 'request.data.form.description'}}</p>
+                    {{combo-box choices=controller.formTypes selection=controller.formType}}
+                    {{editable-table entries=controller.formData}}
+                {{/if}}
+                {{#if view.dmCustom}}
+                    <p>{{tr 'request.data.custom.description'}}</p>
+                    <div class="control">
+                        {{input placeholder=controller.trDataType value=controller.dataType}}
+                    </div>
+                    <div class="control">
+                        {{textarea value=controller.dataCustom rows=6}}
+                    </div>
+                {{/if}}
+            {{/collapsible-section}}
+
+            <!-- Authentication data -->
+            {{#collapsible-section title='request.auth.title'}}
+                <p>{{tr 'request.auth.description'}}</p>
+                <div class="control">
+                    {{input placeholder=controller.trUsername value=controller.username}}
+                </div>
+                <div class="control">
+                    {{input type='password' placeholder=controller.trPassword value=controller.password}}
+                </div>
+            {{/collapsible-section}}
+        </script>
+
+        <!-- Response view -->
+        <script type="text/x-handlebars" data-template-name="app-response">
+            {{#tab-container activeTab='response.headers.title'}}
+                {{tab-button title="response.headers.title"}}
+                {{tab-button title="response.raw.title"}}
+                {{tab-button title="response.preview.title"}}
+                {{#tab-content title="response.headers.title"}}
+                    {{#if response}}
+                        <h2>{{response.status}} {{response.statusText}}</h2>
+                        <table class="table">
+                            <tr>
+                                <th>{{tr 'table.name'}}</th>
+                                <th>{{tr 'table.value'}}</th>
+                            </tr>
+                            {{#each response.headers}}
+                                <tr class="data">
+                                    <td>{{name}}</td>
+                                    <td>{{value}}</td>
+                                </tr>
+                            {{/each}}
+                        </table>
+                    {{/if}}
+                {{/tab-content}}
+                {{#tab-content title="response.raw.title"}}
+                    {{#if response}}
+                        {{highlight-pre raw=response.raw contentType=response.contentType}}
+                    {{/if}}
+                {{/tab-content}}
+                {{#tab-content title="response.preview.title"}}
+                    {{#if response }}
+                        {{#if response.preview}}
+                            <iframe type="content" {{bind-attr src=response.preview}}></iframe>
+                        {{else}}
+                            <p>{{tr 'response.preview.error'}}</p>
+                        {{/if}}
+                    {{/if}}
+                {{/tab-content}}
+            {{/tab-container}}
+        </script>
+
+        <!-- Combo box control -->
+        <script type="text/x-handlebars" data-template-name="components/combo-box">
+            <button {{action 'show' bubbles=false}}>{{selection}}</button>
+            <ul {{bind-attr class=':menu expanded'}}>
+                {{#each choices}}
+                    <li {{action 'select' this}}>{{this}}</li>
+                {{/each}}
+            </ul>
+        </script>
+
+        <!-- Collapsible section control -->
+        <script type="text/x-handlebars" data-template-name="components/collapsible-section">
+            <h4 class="title" {{action 'toggle'}}>
+                <button>
+                    <span {{bind-attr class=":fa buttonClass"}}></span>
+                </button>
+                {{tr title}}
+            </h4>
+            <div {{bind-attr class=":content expanded"}}>
+                {{yield}}
+            </div>
+        </script>
+
+        <!-- Editable table control -->
+        <script type="text/x-handlebars" data-template-name="components/editable-table">
+            <tr>
+                <th>{{tr 'table.name'}}</th>
+                <th>{{tr 'table.value'}}</th>
+                <th class="collapse"></th>
+            </tr>
+            {{#each entries}}
+                <tr class="data">
+                    <td>{{name}}</td>
+                    <td>{{value}}</td>
+                    <td>
+                        <button {{action 'remove' this}} {{bind-attr title=trRemove}}>
+                            <span class="fa fa-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="3">
+                        <p class="info">{{tr 'table.empty'}}</p>
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td><div class="control">{{input placeholder=trName value=name}}</div></td>
+                <td><div class="control">{{input placeholder=trValue value=value}}</div></td>
+                <td>
+                    <button {{action 'add'}} {{bind-attr title=trAdd}}>
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </td>
+            </tr>
+        </script>
+
+        <!-- Tab button control -->
+        <script type="text/x-handlebars" data-template-name="components/tab-button">
+            {{tr title}}
+        </script>
+
+        <!-- Syntax highlighting pre -->
+        <script type="text/x-handlebars" data-template-name="components/highlight-pre">
+            {{#if textContentType}}
+                {{#if notice}}
+                    <div class="notice">
+                        <div class="actions">
+                            <button {{action 'highlight'}}>
+                                <span class="fa fa-paint-brush"></span>
+                                {{tr 'highlight.highlight'}}
+                            </button>
+                        </div>
+                        <div class="message">{{tr 'highlight.notice'}}</div>
+                    </div>
+                {{/if}}
+                <pre></pre>
+            {{else}}
+                <p>{{tr 'response.raw.error'}}</p>
+            {{/if}}
+        </script>
+
+        <!-- Dialog box control -->
+        <script type="text/x-handlebars" data-template-name="components/dialog-box">
+            <div class="content">
+                {{yield}}
+            </div>
+        </script>
+
+        <!-- Scripts -->
+        <script src="vendor/js/less.min.js"></script>
+        <script src="vendor/js/jquery.min.js"></script>
+        <script src="vendor/js/jquery.hotkeys.min.js"></script>
+        <script src="vendor/js/handlebars.min.js"></script>
+        <script src="vendor/js/ember.min.js"></script>
+        <script src="vendor/js/highlight.min.js"></script>
+        <script src="js/application.js"></script>
+    </body>
+</html>
